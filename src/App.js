@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Beers from "./components/Beers";
 import RandomBeer from "./components/RandomBeer";
 import NewBeer from "./components/NewBeer";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import axios from "axios";
+import BeerDetails from "./components/BeerDetails";
 
 function App() {
   const [beers, setBeers] = React.useState([]);
@@ -34,7 +34,10 @@ function App() {
           <Route path="/beers" element={<Beers beers={beers} />} />
           <Route path="/random-beer" element={<RandomBeer />} />
           <Route path="/new-beer" element={<NewBeer />} />
-          {/* <Route path="/beers/:id" element={<FoundBeer />} /> */}
+          <Route
+            path="/beer/:beerId"
+            element={<BeerDetails beerList={beers} />}
+          />
         </Routes>
       </div>
     </div>
